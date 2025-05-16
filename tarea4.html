@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Operaciones</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 0;
+        margin: 0;
+        height: 100vh; 
+        display: flex;
+        justify-content: center; 
+        align-items: center;     
+        background-color: #f0f0f0; 
+    }
+    input {
+        margin: 10px 0;
+        padding: 8px;
+        width: 80%;
+    }
+    button{
+        margin: 10px 0;
+        padding: 8px;
+        width: 100%;
+    }
+    .container {
+        border-radius: 10px;
+        justify-content: center;
+        width: 500px;
+        background-color: rgb(181, 181, 181);
+        margin: auto;
+        padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Operaciones</h2>
+    <label for="num1">Número 1:</label>
+    <input type="number" id="num1"><br>
+    <label for="num2">Número 2:</label>
+    <input type="number" id="num2"><br>
+    <button onclick="realizarOperaciones()">Calcular</button>
+  </div>
+
+  <script>
+    function realizarOperaciones() {
+      const num1 = parseFloat(document.getElementById("num1").value);
+      const num2 = parseFloat(document.getElementById("num2").value);
+
+      if (isNaN(num1) || isNaN(num2)) {
+        alert("Por favor, ingresa dos números válidos.");
+        return;
+      }
+
+      for (let i = 1; i <= 5; i++) {
+        let resultado;
+        let mensaje = "";
+
+        switch (i) {
+          case 1:
+            resultado = num1 + num2;
+            mensaje = `Suma: ${resultado}`;
+            break;
+          case 2:
+            resultado = num1 - num2;
+            mensaje = `Resta: ${resultado}`;
+            break;
+          case 3:
+            resultado = num1 * num2;
+            mensaje = `Multiplicación: ${resultado}`;
+            break;
+          case 4:
+            if (num2 !== 0) {
+              resultado = num1 / num2;
+              mensaje = `División: ${resultado}`;
+            } else {
+              mensaje = `División: No se puede dividir por cero`;
+            }
+            break;
+          case 5:
+            if (num2 !== 0) {
+              resultado = num1 % num2;
+              mensaje = `Módulo: ${resultado}`;
+            } else {
+              mensaje = `Módulo: No se puede calcular módulo con cero`;
+            }
+            break;
+        }
+
+        alert(mensaje);
+      }
+    }
+  </script>
+</body>
+</html>
